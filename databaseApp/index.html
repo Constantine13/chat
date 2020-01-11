@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="google-signin-client_id" content="294048336693-k3k3ckn923jorlmvqou6akmba22mnutg.apps.googleusercontent.com">
+    <link rel="stylesheet" href="css/bootstrap.css"></link>
+    <link rel="stylesheet" href="css/styles.css"></link>
+    <link rel="icon" href="icons/img.jpg" type="image/x-icon">
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <script src="https://www.gstatic.com/firebasejs/7.4.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.4.0/firebase-database.js"></script>
+    <script type="text/javascript" src="js/bootstrap.js"></script>
+    <script type="text/javascript" src="https://vk.com/js/api/openapi.js?162"></script>
+    <script src="js/functions.js"></script>
+    <script defer src="js/script.js"></script>
+    <title>Жыбий Рыр</title>
+</head>
+
+<body>
+    <script type="text/javascript">VK.init({apiId: 7217440});</script>
+    <div class="container-fluid" id="grid">
+        <div class="row my-row justify-content-end">
+            <div class="col-12 col-sm-4">
+                    <div class="alert alert-dark switchable hide" role="alert" id="status"></div>
+            </div>
+            <div class="col-12 col-sm-1 my-col">
+                <div class="switchable btn my-button btn-outline-warning btn-block" onclick="yandexLogIn()" id="yandex-sign-in">Yandex</div>
+            </div>
+            <div class="col-12 col-sm-1 my-col">
+                <div class="g-signin2 btn switchable my-button" data-onsuccess="onSignIn" id="google-sign-in"></div>
+            </div>
+            <div class="col-12 col-sm-1 my-col">
+                <button type="button" class="btn btn-outline-primary btn-block my-button switchable" onclick="vkLogIn()" id="button-vk">Login with VK</button>
+            </div>
+            <div class="col-12 col-sm-1 my-col">
+                <button type="button" class="btn btn-outline-warning btn-block my-button switchable hide" onclick="logOut()" id="button-logout">LogOut</button>
+            </div>
+        </div>
+
+        <div class="row my-row justify-content-center hide switchable">
+            <div class="col-12 col-sm-1 my-col">
+                <button class="btn btn-block btn-outline-warning" type="button" id="button-block" onclick="changeBlockState(true)">Block selected</button>
+            </div>
+            <div class="col-12 col-sm-1 my-col">
+                <button class="btn btn-block btn-outline-warning" type="button" id="button-unblock" onclick="changeBlockState(false)">Unblock selected</button>
+            </div>
+            <div class="col-12 col-sm-1 my-col">
+                <button class="btn btn-block btn-outline-warning" type="button" id="button-delete" onclick="deleteSelected()">Delete selected</button>
+            </div>
+        </div>
+    </div>
+
+    <table class="table table-dark table-striped table-bordered table-hover switchable hide" id="table-container">
+        <thead class='thead-dark'>
+            <tr>
+                <th scope="col">id</th>
+                <th scope="col">Name</th>
+                <th scope="col">Email</th>
+                <th scope="col">SignInTime</th>
+                <th scope="col">SignUpTime</th>
+                <th scope="col">isBlocked</th>
+                <th scope="col">RegisteredWith</th>
+                <th scope="col"><input class="checkbox" type="checkbox" id="check-all" onclick="checkAll(this)"/></th>
+            </tr>
+        </thead>
+        <tbody id="table-body"></tbody>
+    </table>
+</body>
+
+</html>

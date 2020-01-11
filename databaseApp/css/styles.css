@@ -1,0 +1,38 @@
+body{
+    background-color: rgb(83, 83, 83);
+}
+.my-button{
+    border-radius: 10rem;
+}
+
+.my-col{
+    padding: 0px;
+    margin: 10px;
+}
+
+#grid {
+    background-color: rgb(83, 83, 83);
+    color: #f1f1f1;
+  }
+  
+.content {
+    padding: 16px;
+}
+
+.sticky {
+    position: fixed;
+    top: 0;
+    width: 100%
+}
+
+.sticky + .content {
+    padding-top: 102px;
+}
+
+#google-sign-in{
+    padding-top:0;
+}
+
+#status{
+    text-align: center;
+}
